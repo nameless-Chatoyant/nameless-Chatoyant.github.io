@@ -1677,7 +1677,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #17a38a;
+  background: #295bff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2517,17 +2517,16 @@ embed {
   display: inline-block;
 }
 progress {
-  width: 160px;
-  border: 1px solid #0064b4;
-  background-color: #e6e6e6;
-  color: #0064b4; /*IE10*/
+  width: 320px;
+  background-color: #00e6e6;
+  color: #000; /*IE10*/
 }
 progress::-moz-progress-bar {
-  background: #0064b4;
+  background: #0000b4;
 }
 progress::-webkit-progress-bar {
-  background: #e6e6e6;
+  background: #00e6e6;
 }
 progress::-webkit-progress-value {
-  background: #0064b4;
+  background: #000;
 }
