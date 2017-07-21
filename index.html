@@ -93,15 +93,15 @@
 
 
 
-<meta name="description" content="机器学习方向的去个人化博客">
+<meta name="description" content="深度学习">
 <meta property="og:type" content="website">
 <meta property="og:title" content="無名">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="無名">
-<meta property="og:description" content="机器学习方向的去个人化博客">
+<meta property="og:description" content="深度学习">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="無名">
-<meta name="twitter:description" content="机器学习方向的去个人化博客">
+<meta name="twitter:description" content="深度学习">
 
 
 
@@ -276,6 +276,1000 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/21/OCR-2-test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chatoyant">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="無名">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/21/OCR-2-test/" itemprop="url">OCR-2-test</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T14:57:21+08:00">
+                2017-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/21/OCR-2-test/" class="leancloud_visitors" data-flag-title="OCR-2-test">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>以下图作为输入<br><img src="http://imglf.nosdn.127.net/img/elBJbXQxRXFVUVEybTRiakhuMFJERDhnM2pocUpSYUhPVWFad21oMFdDYUZNOHJMdjlOOW53PT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" width="300"><br>最终的预测图使用连通域的方法，对所有连通域作最小外接矩形</p>
+<table><br><tr><th>mask图</th><th>结果</th><br></tr><br><tr><br>    <td><br>    <img src="http://imglf0.nosdn.127.net/img/elBJbXQxRXFVUVEybTRiakhuMFJETzYyMTVZVFhsV2E5YzJqY1pYVDJCQVlreWZ1SW9IY0h3PT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" width="300"><br>    </td><br>    <td><br>    <img src="http://imglf.nosdn.127.net/img/elBJbXQxRXFVUVEybTRiakhuMFJER3FOTnhXRzROWWtYVDBRdWFLdXBGcEt6S2FNTnplZGxBPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" width="300"><br>    </td><br>    </tr><br></table>
+
+<p>可见噪声非常严重，既然是连通域的方法，这里使用膨胀(Dilation)与腐蚀(Erosion)对mask图(输入需是二值化的图)进行操作。</p>
+<p><table></table></p>
+<p><tr><th>mask图</th><th>结果</th><br></tr></p>
+<p><tr><br>    <td><br>    <img src="http://imglf.nosdn.127.net/img/elBJbXQxRXFVUVEybTRiakhuMFJEQmtsck54ZERrUTlaWUUvTjhqeXpIZFpNY0I3by90OUJRPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" width="300"><br>    </td><br>    <td><br>    <img src="http://imglf0.nosdn.127.net/img/elBJbXQxRXFVUVEybTRiakhuMFJEQ0htSjlWUHpZUDRIa24yZFVINzQ1SURxUkI2V3c1ZGlnPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" width="300"><br>    </td><br>    </tr><br><br>膨胀操作后，连通域面积缩小</p>
+<p><table></table></p>
+<p><tr><th>mask图</th><th>结果</th><br></tr></p>
+<p><tr><br>    <td><br>    <img src="http://imglf2.nosdn.127.net/img/elBJbXQxRXFVUVEybTRiakhuMFJES2VnMDAxK0lROFF3S0UrOTRvMnVmRlErRUdzckhEaU5BPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" width="300"><br>    </td><br>    <td><br>    <img src="http://imglf2.nosdn.127.net/img/elBJbXQxRXFVUVEybTRiakhuMFJETHllSmxrWC83ZGJkL2RmWkhUYWdNNGVhL1VubHFnT2lnPT0.jpg?imageView&thumbnail=500x0&quality=96&stripmeta=0&type=jpg" width="300"><br>    </td><br>    </tr><br><br>腐蚀操作后，连通域面积扩大</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/15/视频中文档文本的提取-二-数据增强/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chatoyant">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="無名">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/15/视频中文档文本的提取-二-数据增强/" itemprop="url">视频中文档文本的提取(二) 数据增强</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:31:37+08:00">
+                2017-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/15/视频中文档文本的提取-二-数据增强/" class="leancloud_visitors" data-flag-title="视频中文档文本的提取(二) 数据增强">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>文本固有的属性：</p>
+<p>不同的行间距</p>
+<p>不同的字号</p>
+<p>不同行间距</p>
+<p>不同字号</p>
+<p>光线</p>
+<p>纸张颜色</p>
+<p>拍摄时的变化：</p>
+<p>光线</p>
+<p>阴影：摄录时人与器材造成的阴影(局部或全部变暗)</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3197118-773f40fe2d51a027.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3197118-371414d6ecaadd2f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>倾斜</p>
+<p>背景</p>
+<p>曲面</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3197118-5c778f63da6472f6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>透视</p>
+<p>暗角</p>
+<p>被摄物体为纸张，有可能出现卷角进而产生阴影。</p>
+<p>拍摄时产生的暗角问题10.8.0.13</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3197118-ab2d3807f239a31e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3197118-797647ceef471433.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/12/【论文笔记】Convolutional-Neural-Networks-for-Sentence-Classification/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chatoyant">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="無名">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/12/【论文笔记】Convolutional-Neural-Networks-for-Sentence-Classification/" itemprop="url">【论文笔记】Convolutional Neural Networks for Sentence Classification</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T17:42:57+08:00">
+                2017-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/12/【论文笔记】Convolutional-Neural-Networks-for-Sentence-Classification/" class="leancloud_visitors" data-flag-title="【论文笔记】Convolutional Neural Networks for Sentence Classification">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>将句子表示为词的序列</p>
+<p>$$<br>x_{1:n} = x_1 \oplus x_2 \oplus \ldots\oplus x_n<br>$$</p>
+<p>$$<br>w \in \mathbb{R}^{hk}<br>$$<br>选用大小的filter，即时域卷积，对于图像处理领域，filter大小可以直观地看作在图像上采集特征的格子，这个格子的长和宽决定了它采集的范围；而在自然语言处理上，卷积操作已经是针对word embedding之后的vectors了，选取小于k宽度的filter相当于把成形的词向量再分割提取特征，没什么实际的意义也没有好的效果。</p>
+<p>$$<br>\sqrt{3x-1}+(1+x)^2<br>$$</p>
+<p>$$<br>c_i = f(w · x_{i:i+h−1} + b)<br>$$</p>
+<p>$$<br>{x_{1:h}, x_{2:h+1}, \ldots , x_{n−h+1:n}}<br>$$</p>
+<p>$$<br>c = [c_1, c_2, \ldots , c_{n−h+1}]<br>$$</p>
+<p>$$<br>c \in \mathbb{R}^{n−h+1}<br>$$</p>
+<p>$$<br>\sqrt{3x-1}+(1+x)^2<br>$$</p>
+<p>用了以下模型</p>
+<ul>
+<li>CNN-rand:</li>
+<li>CNN-static:</li>
+<li>CNN-non-static:</li>
+<li>CNN-multichannel:</li>
+</ul>
+<p>预训练的word embedding对于深度学习进行NLP任务非常关键。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/12/【笔记】The-Unreasonable-Effectiveness-of-Recurrent-Neural-Networks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chatoyant">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="無名">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/12/【笔记】The-Unreasonable-Effectiveness-of-Recurrent-Neural-Networks/" itemprop="url">【笔记】The Unreasonable Effectiveness of Recurrent Neural Networks</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T15:38:01+08:00">
+                2017-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/12/【笔记】The-Unreasonable-Effectiveness-of-Recurrent-Neural-Networks/" class="leancloud_visitors" data-flag-title="【笔记】The Unreasonable Effectiveness of Recurrent Neural Networks">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>原文：<a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="external">The Unreasonable Effectiveness of Recurrent Neural Networks</a></p>
+<h1 id="Character-Level-Language-Models"><a href="#Character-Level-Language-Models" class="headerlink" title="Character-Level Language Models"></a>Character-Level Language Models</h1><h1 id="Fun-with-RNNs"><a href="#Fun-with-RNNs" class="headerlink" title="Fun with RNNs"></a>Fun with RNNs</h1><p>原文花了很大的篇幅描述了字符级语言模型(Character-Level Language Models)的有趣之处，包括</p>
+<h1 id="Understanding-what’s-going-on"><a href="#Understanding-what’s-going-on" class="headerlink" title="Understanding what’s going on"></a>Understanding what’s going on</h1><h1 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h1><h1 id="Further-Reading"><a href="#Further-Reading" class="headerlink" title="Further Reading"></a>Further Reading</h1><h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/11/求解旋转图像的最大内接矩形/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chatoyant">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="無名">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/11/求解旋转图像的最大内接矩形/" itemprop="url">数据增强中的图像旋转</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T16:02:17+08:00">
+                2017-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/图像处理/" itemprop="url" rel="index">
+                    <span itemprop="name">图像处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/11/求解旋转图像的最大内接矩形/" class="leancloud_visitors" data-flag-title="数据增强中的图像旋转">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>求解过程在<a href="http://blog.csdn.net/yhl_leo/article/details/51510432" target="_blank" rel="external">求解旋转图像的最大内接矩形 - yhl_leo - CSDN博客</a>一文已写的非常详细，这里提供Python版本的几个函数</p>
+<h1 id="切矩形，旋转，范围内求矩形"><a href="#切矩形，旋转，范围内求矩形" class="headerlink" title="切矩形，旋转，范围内求矩形"></a>切矩形，旋转，范围内求矩形</h1><h1 id="限制选点范围"><a href="#限制选点范围" class="headerlink" title="限制选点范围"></a>限制选点范围</h1>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/11/【论文笔记】Multi-Scale-Context-Aggregation-by-Dilated-Convolutions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chatoyant">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="無名">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/11/【论文笔记】Multi-Scale-Context-Aggregation-by-Dilated-Convolutions/" itemprop="url">【论文笔记】Multi-Scale Context Aggregation by Dilated Convolutions</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T07:13:11+08:00">
+                2017-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">论文笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/11/【论文笔记】Multi-Scale-Context-Aggregation-by-Dilated-Convolutions/" class="leancloud_visitors" data-flag-title="【论文笔记】Multi-Scale Context Aggregation by Dilated Convolutions">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>论文下载：<a href="https://arxiv.org/pdf/1511.07122.pdf" target="_blank" rel="external">Multi-Scale Context Aggregation by Dilated Convolutions</a></p>
+<h1 id="Dilated-Convolutions"><a href="#Dilated-Convolutions" class="headerlink" title="Dilated Convolutions"></a>Dilated Convolutions</h1><h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/图像分割-基于CNN的图像分割/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chatoyant">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="無名">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/10/图像分割-基于CNN的图像分割/" itemprop="url">图像分割() 基于CNN的图像分割</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T14:41:21+08:00">
+                2017-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/10/图像分割-基于CNN的图像分割/" class="leancloud_visitors" data-flag-title="图像分割() 基于CNN的图像分割">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>虽然在CNN方向上FCN的成果已经很显著了，但FCN模型是比较复杂的，对于简单的任务CNN就可以胜任了。</p>
+<p><a href="https://arxiv.org/pdf/1411.4038.pdf" target="_blank" rel="external">Fully Convolutional Networks for Semantic Segmentation</a>是FCN的开创性论文，其中提到了几篇用CNN解决图像分割的问题：</p>
+<blockquote>
+<p>Prior approaches have used convnets for semantic segmentation[27, 2, 8, 28, 16, 14, 11], in which each pixel is labeled with the class of its enclosing object or region, but with short-comings that this work addresses.</p>
+</blockquote>
+<ul>
+<li><a href="http://people.idsia.ch/~juergen/nips2012.pdf" target="_blank" rel="external">Deep Neural Networks Segment Neuronal Membranes in Electron Microscopy Images</a></li>
+<li><a href="http://yann.lecun.com/exdb/publis/orig/farabet-pami-13.pdf" target="_blank" rel="external">Learning Hierarchical Features for Scene Labeling</a></li>
+<li><a href="http://proceedings.mlr.press/v32/pinheiro14.pdf" target="_blank" rel="external">Recurrent Convolutional Neural Networks for Scene Labeling</a></li>
+</ul>
+<p>其他资料：</p>
+<ul>
+<li><a href="https://arxiv.org/pdf/1412.7062.pdf" target="_blank" rel="external">Semantic Image Segmentation with Deep Convolutional Nets and Fully Connected CRFs</a></li>
+<li><a href="https://arxiv.org/pdf/1611.05198.pdf" target="_blank" rel="external">One-Shot Video Object Segmentation</a></li>
+<li><a href="https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/Borenstein06.pdf" target="_blank" rel="external">Shape Guided Object Segmentation</a></li>
+</ul>
+<p>CNN常用在图片的分类问题上，把CNN迁移到图片分割问题上通常的做法是这样的：</p>
+<blockquote>
+<p>传统的基于CNN的分割方法的做法通常是：为了对一个像素分类，使用该像素周围的一个图像块作为CNN的输入用于训练和预测。这种方法有几个缺点：一是存储开销很大。例如对每个像素使用的图像块的大小为15x15，则所需的存储空间为原来图像的225倍。二是计算效率低下。相邻的像素块基本上是重复的，针对每个像素块逐个计算卷积，这种计算也有很大程度上的重复。三是像素块大小的限制了感知区域的大小。通常像素块的大小比整幅图像的大小小很多，只能提取一些局部的特征，从而导致分类的性能受到限制。</p>
+<p><a href="http://blog.csdn.net/taigw/article/details/51401448" target="_blank" rel="external">全卷积网络（FCN）与图像分割</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/学习资料整理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -360,6 +1354,9 @@
 <li><a href="http://pdf.aminer.org/000/907/580/efficient_graph_based_image_segmentation.pdf" target="_blank" rel="external">Efficient Graph-Based Image Segmentation</a></li>
 <li><a href="http://www.cis.rit.edu/~cnspci/references/shi2000.pdf" target="_blank" rel="external">Normalized Cuts and Image Segmentation</a></li>
 <li><a href="https://arxiv.org/pdf/1411.4038.pdf" target="_blank" rel="external">Fully Convolutional Networks for Semantic Segmentation</a></li>
+<li><a href="http://image-net.org/challenges/LSVRC/2012/supervision.pdf" target="_blank" rel="external">ImageNet classification with deep convolutional neural networks</a></li>
+<li><a href="http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf" target="_blank" rel="external">Dropout: A Simple Way to Prevent Neural Networks from Overfitting</a></li>
+<li><a href="https://arxiv.org/pdf/1405.0312.pdf" target="_blank" rel="external">Microsoft COCO: Common Objects in Context</a></li>
 </ul>
 
           
@@ -494,7 +1491,6 @@
 <li>聚类法(Clustering methods)</li>
 <li>区域生长(Region-growing methods)</li>
 <li>(Level set methods[edit])</li>
-<li></li>
 </ul>
 
           
@@ -558,7 +1554,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/10/7-10-实习工作安排/" itemprop="url">7.10~ 实习工作安排</a></h1>
+                <a class="post-title-link" href="/2017/07/10/7-10-实习工作安排/" itemprop="url">7.10~9.9 实习工作安排</a></h1>
         
 
         <div class="post-meta">
@@ -588,7 +1584,7 @@
 
           
           
-             <span id="/2017/07/10/7-10-实习工作安排/" class="leancloud_visitors" data-flag-title="7.10~ 实习工作安排">
+             <span id="/2017/07/10/7-10-实习工作安排/" class="leancloud_visitors" data-flag-title="7.10~9.9 实习工作安排">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -632,1001 +1628,14 @@
 <li>利用CNN识别出盯着拍的帧</li>
 <li>根据锐度挑最清楚的帧</li>
 <li>找出单页</li>
-<li>分行：图像分割(按像素标注)，带孔卷积(dilated conv, atrons conv)</li>
+<li>分行：图像分割(按像素标注)，带孔卷积(dilated conv, atrous conv)</li>
 <li>单行识别：CNN+LSTM+CTC</li>
 </ol>
 <h1 id="当前任务"><a href="#当前任务" class="headerlink" title="当前任务"></a>当前任务</h1><p>由<a href="https://github.com/JesseYang/Segmentation" target="_blank" rel="external">JesseYang/Segmentation</a>入手，学习图像分割</p>
+<h2 id="原始标注文件-gt-训练集和测试集"><a href="#原始标注文件-gt-训练集和测试集" class="headerlink" title="原始标注文件-&gt;训练集和测试集"></a>原始标注文件-&gt;训练集和测试集</h2><p>随机选格，随机缩放</p>
+<p>转换成png/dat的X/y数据格式</p>
+<h2 id="reader-py"><a href="#reader-py" class="headerlink" title="reader.py"></a>reader.py</h2><p>数据增强：变形、旋转</p>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/Understanding-LSTMs笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chatoyant">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="無名">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/10/Understanding-LSTMs笔记/" itemprop="url">Understanding LSTMs笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T09:31:25+08:00">
-                2017-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/07/10/Understanding-LSTMs笔记/" class="leancloud_visitors" data-flag-title="Understanding LSTMs笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h1><p>人类在思考的过程中是依赖于记忆的，RNN在一般神经网络的基础上增加了记忆的功能。所谓“记忆”，即模型在生成输出的时候不光依赖当前输入，也依赖于先前的输入，看了<a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="external">The Unreasonable Effectiveness of Recurrent Neural Networks</a>后可以知道，RNN的记忆是短期的，只能记住一定大小的记忆窗口。LSTM是一种增加了长期记忆功能的RNN，这体现在RNN的<code>step()</code>步骤上。</p>
-<h1 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h1><h1 id="拓展资料"><a href="#拓展资料" class="headerlink" title="拓展资料"></a>拓展资料</h1><ul>
-<li><a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="external">The Unreasonable Effectiveness of Recurrent Neural Networks</a>：RNN的讲解，也以LSTM为重</li>
-<li>[Hochreiter (1991) [German](<a href="http://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf)：" target="_blank" rel="external">http://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf)：</a></li>
-<li><a href="http://www-dsi.ing.unifi.it/~paolo/ps/tnn-94-gradient.pdf" target="_blank" rel="external">Bengio, et al. (1994)</a></li>
-<li><a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" target="_blank" rel="external">Hochreiter &amp; Schmidhuber (1997)</a></li>
-<li><a href="http://arxiv.org/pdf/1406.1078v3.pdf" target="_blank" rel="external">Cho, et al. (2014)</a></li>
-<li><a href="http://arxiv.org/pdf/1508.03790v2.pdf" target="_blank" rel="external">Yao, et al. (2015)</a></li>
-<li><a href="ftp://ftp.idsia.ch/pub/juergen/TimeCount-IJCNN2000.pdf" target="_blank" rel="external">Gers &amp; Schmidhuber (2000)</a>：LSTM变体，peephole connections</li>
-<li><a href="http://arxiv.org/pdf/1402.3511v1.pdf" target="_blank" rel="external">Koutnik, et al. (2014)</a>：Clockwork RNNs</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chatoyant">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="無名">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-4/" itemprop="url">Machine Learning by Andrew Ng Lecture 4</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-09T17:15:42+08:00">
-                2017-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-4/" class="leancloud_visitors" data-flag-title="Machine Learning by Andrew Ng Lecture 4">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chatoyant">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="無名">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-3/" itemprop="url">Machine Learning by Andrew Ng Lecture 3</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-09T17:15:39+08:00">
-                2017-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-3/" class="leancloud_visitors" data-flag-title="Machine Learning by Andrew Ng Lecture 3">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chatoyant">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="無名">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-2/" itemprop="url">Machine Learning by Andrew Ng Lecture 2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-09T17:15:37+08:00">
-                2017-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-2/" class="leancloud_visitors" data-flag-title="Machine Learning by Andrew Ng Lecture 2">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chatoyant">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="無名">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-5/" itemprop="url">Machine Learning by Andrew Ng Lecture 5</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-09T15:10:55+08:00">
-                2017-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning-by-Andrew-Ng学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning by Andrew Ng学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/07/09/Machine-Learning-by-Andrew-Ng-Lecture-5/" class="leancloud_visitors" data-flag-title="Machine Learning by Andrew Ng Lecture 5">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Lecture 5通篇讲述了Octave的使用教程，对于Programmer的难度低一些，这里整理出一些Octave常用操作。</p>
-<h1 id="编程作业"><a href="#编程作业" class="headerlink" title="编程作业"></a>编程作业</h1><table>
-<thead>
-<tr>
-<th>Part Name</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Warm-up Exercise</td>
-<td>热身</td>
-</tr>
-<tr>
-<td>Computing Cost (for One Variable)</td>
-<td>单一x变量的cost计算</td>
-</tr>
-<tr>
-<td>Gradient Descent (for One Variable)</td>
-<td>单一x变量的梯度下降</td>
-</tr>
-<tr>
-<td>Feature Normalization</td>
-<td>特征缩放：特征正则化</td>
-</tr>
-<tr>
-<td>Computing Cost (for Multiple Variables)</td>
-<td>多个x变量的cost计算</td>
-</tr>
-<tr>
-<td>Gradient Descent (for Multiple Variables)</td>
-<td>多个x变量的梯度下降</td>
-</tr>
-<tr>
-<td>Normal Equations</td>
-<td>正规方程公式的代码实现</td>
-</tr>
-</tbody>
-</table>
-<p>课程当中一直在说明向量化(vectorization)的重要性，编程作业也直接以向量化的方式实现，同一份代码可以完成单变量和多变量的作业。</p>
-<h2 id="Computing-Cost"><a href="#Computing-Cost" class="headerlink" title="Computing Cost"></a>Computing Cost</h2><h2 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h2><h2 id="Feature-Normalization"><a href="#Feature-Normalization" class="headerlink" title="Feature Normalization"></a>Feature Normalization</h2><p>$$<br>\begin{eqnarray}<br>\nabla\cdot\vec{E} &amp;=&amp; \frac{\rho}{\epsilon_0} \\<br>\nabla\cdot\vec{B} &amp;=&amp; 0 \\<br>\nabla\times\vec{E} &amp;=&amp; -\frac{\partial B}{\partial t} \\<br>\nabla\times\vec{B} &amp;=&amp; \mu_0\left(\vec{J}+\epsilon_0\frac{\partial E}{\partial t} \right)<br>\end{eqnarray}<br>$$</p>
-<h2 id="Normal-Equations"><a href="#Normal-Equations" class="headerlink" title="Normal Equations"></a>Normal Equations</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">==                                   Part Name |     Score | Feedback</div><div class="line">==                                   --------- |     ----- | --------</div><div class="line">==                            Warm-up Exercise |  10 /  10 | Nice work!</div><div class="line">==           Computing Cost (for One Variable) |  40 /  40 | Nice work!</div><div class="line">==         Gradient Descent (for One Variable) |  50 /  50 | Nice work!</div><div class="line">==                       Feature Normalization |   0 /   0 | Nice work!</div><div class="line">==     Computing Cost (for Multiple Variables) |   0 /   0 | Nice work!</div><div class="line">==   Gradient Descent (for Multiple Variables) |   0 /   0 | Nice work!</div><div class="line">==                            Normal Equations |   0 /   0 | Nice work!</div><div class="line">==                                   --------------------------------</div><div class="line">==                                             | 100 / 100 |</div></pre></td></tr></table></figure>
-<p>代码仓库：</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/08/7-9-入职前的知识储备/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chatoyant">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="無名">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/08/7-9-入职前的知识储备/" itemprop="url">7.9 入职前的知识储备</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T22:05:53+08:00">
-                2017-07-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Progress/" itemprop="url" rel="index">
-                    <span itemprop="name">Progress</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/07/08/7-9-入职前的知识储备/" class="leancloud_visitors" data-flag-title="7.9 入职前的知识储备">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><p>[x] <a href="https://github.com/ppwwyyxx/tensorpack" target="_blank" rel="external">Tensorpack</a></p>
-<pre><code>公司用的TF封装，入职后先做出实际成果，优先学习。
-</code></pre></li>
-<li><p>[x] <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="external">The Unreasonable Effectiveness of Recurrent Neural Networks</a></p>
-<pre><code>RNN入门级阅读材料，篇幅简短
-</code></pre></li>
-<li><p>[ ] <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="external">Understanding LSTM Networks</a></p>
-<pre><code>LSTM入门级阅读材料，篇幅简短
-</code></pre></li>
-<li><p>[ ] <a href="http://neuralnetworksanddeeplearning.com/index.html" target="_blank" rel="external">Neural Networks and Deep Learning</a></p>
-<pre><code>科普入门级阅读材料，目前共6章。重点放在第二章，把之前没掌握的BP算法理清楚
-</code></pre></li>
-<li><p>[ ] <a href="http://cs231n.github.io/" target="_blank" rel="external">CS231n Convolutional Neural Networks for Visual Recognition</a></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/08/Machine-Learning-by-Andrew-Ng-Lecture-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chatoyant">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="無名">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/08/Machine-Learning-by-Andrew-Ng-Lecture-1/" itemprop="url">Machine Learning by Andrew Ng Lecture 1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T15:59:33+08:00">
-                2017-07-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning-by-Andrew-Ng学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning by Andrew Ng学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/07/08/Machine-Learning-by-Andrew-Ng-Lecture-1/" class="leancloud_visitors" data-flag-title="Machine Learning by Andrew Ng Lecture 1">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
           
         
       
@@ -1663,6 +1672,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1697,7 +1710,7 @@
                alt="Chatoyant" />
           <p class="site-author-name" itemprop="name">Chatoyant</p>
            
-              <p class="site-description motion-element" itemprop="description">机器学习方向的去个人化博客</p>
+              <p class="site-description motion-element" itemprop="description">深度学习</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -1705,7 +1718,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1716,7 +1729,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
