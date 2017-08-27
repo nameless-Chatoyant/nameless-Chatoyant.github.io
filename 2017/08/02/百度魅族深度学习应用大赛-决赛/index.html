@@ -1,0 +1,873 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="赛题介绍 决赛数据集一共包含10万张图片和一个labels.txt的文本文件。每张图片包含一个数学运算式，运算式中包含：1.图片大小不固定2.图片中的某一块区域为公式部分3.图片中包含二行或者三行的公式4.公式类型有两种：赋值和四则运算的公式。两行的包括由一个赋值公式和一个计算公式，三行的包括两个赋值公式和一个计算公式。加号（+） 即使旋转为 x ，仍为加号， * 是乘号5.赋值类的公式，变量名为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="百度魅族深度学习应用大赛-决赛">
+<meta property="og:url" content="http://yoursite.com/2017/08/02/百度魅族深度学习应用大赛-决赛/index.html">
+<meta property="og:site_name" content="無名">
+<meta property="og:description" content="赛题介绍 决赛数据集一共包含10万张图片和一个labels.txt的文本文件。每张图片包含一个数学运算式，运算式中包含：1.图片大小不固定2.图片中的某一块区域为公式部分3.图片中包含二行或者三行的公式4.公式类型有两种：赋值和四则运算的公式。两行的包括由一个赋值公式和一个计算公式，三行的包括两个赋值公式和一个计算公式。加号（+） 即使旋转为 x ，仍为加号， * 是乘号5.赋值类的公式，变量名为">
+<meta property="og:image" content="http://imglf.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3EwcHVGOUNvdDMwb0d6bXVnN09KS3I4MnIrK285YlhPN2NRPT0.png?imageView&thumbnail=3000y843&type=jpg&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3EwaGxoYnRIc1FqTnMzblRGV0JaMk44eGo4SU9uc0VLVVl3PT0.png?imageView&thumbnail=3000y843&type=jpg&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3Ewc2FDVlFTSUdHZ2w3S25adXZ1RnRlTVBxRUhLbU40TzZ3PT0.png?imageView&thumbnail=3000y843&type=jpg&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf0.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3Ewc1RQcndnOXN1aWVrc0gzSkt1UlYyRmJFY2U2RmlPSnhnPT0.png?imageView&thumbnail=3000y843&type=jpg&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf2.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3Ewdk5oUFJ0eWFhRDBiV1VwTis5R3JrSEtYSUV6Yk9xaG5BPT0.png?imageView&thumbnail=3000y843&type=jpg&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://imglf.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3EwcWxSdU9uVlZIL1Q0Um11TDdDMnJycUk3YjJSZTBMdUtRPT0.png?imageView&thumbnail=3000y843&type=jpg&quality=96&stripmeta=0&type=jpg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3197118-16f79c2ab879e665.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-10T03:42:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="百度魅族深度学习应用大赛-决赛">
+<meta name="twitter:description" content="赛题介绍 决赛数据集一共包含10万张图片和一个labels.txt的文本文件。每张图片包含一个数学运算式，运算式中包含：1.图片大小不固定2.图片中的某一块区域为公式部分3.图片中包含二行或者三行的公式4.公式类型有两种：赋值和四则运算的公式。两行的包括由一个赋值公式和一个计算公式，三行的包括两个赋值公式和一个计算公式。加号（+） 即使旋转为 x ，仍为加号， * 是乘号5.赋值类的公式，变量名为">
+<meta name="twitter:image" content="http://imglf.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3EwcHVGOUNvdDMwb0d6bXVnN09KS3I4MnIrK285YlhPN2NRPT0.png?imageView&thumbnail=3000y843&type=jpg&quality=96&stripmeta=0&type=jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/02/百度魅族深度学习应用大赛-决赛/"/>
+
+
+
+
+
+  <title>百度魅族深度学习应用大赛-决赛 | 無名</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">無名</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Nameless Studio</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/02/百度魅族深度学习应用大赛-决赛/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chatoyant">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="無名">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">百度魅族深度学习应用大赛-决赛</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-02T13:34:46+08:00">
+                2017-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/项目笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">项目笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/08/02/百度魅族深度学习应用大赛-决赛/" class="leancloud_visitors" data-flag-title="百度魅族深度学习应用大赛-决赛">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="赛题介绍"><a href="#赛题介绍" class="headerlink" title="赛题介绍"></a>赛题介绍</h1><blockquote>
+<p>决赛数据集一共包含10万张图片和一个labels.txt的文本文件。每张图片包含一个数学运算式，运算式中包含：<br>1.图片大小不固定<br>2.图片中的某一块区域为公式部分<br>3.图片中包含二行或者三行的公式<br>4.公式类型有两种：赋值和四则运算的公式。两行的包括由一个赋值公式和一个计算公式，三行的包括两个赋值公式和一个计算公式。加号（+） 即使旋转为 x ，仍为加号， * 是乘号<br>5.赋值类的公式，变量名为一个汉字。 汉字来自两句诗（不包括逗号）： 君不见，黄河之水天上来，奔流到海不复回 烟锁池塘柳，深圳铁板烧<br>6.四则运算的公式包括加法、减法、乘法、分数、括号。 其中的数字为多位数字，汉字为变量，由上面的语句赋值。<br>7.输出结果的格式为：图片中的公式，一个英文空格，计算结果。 其中： 不同行公式之间使用英文分号分隔 计算结果时，分数按照浮点数计算，计算结果误差不超过0.01，视为正确。<br>8.整个label文件使用UTF8编码</p>
+</blockquote>
+<h1 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h1><p>因为在一开始就决定把两种数据(赋值公式与计算公式)分开来训练，所以在之后的分行工作结束后，重新统计了比赛数据，记录如下。</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>训练集</th>
+<th>测试集</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>赋值公式</td>
+<td>165807</td>
+<td>165623</td>
+</tr>
+<tr>
+<td>计算公式</td>
+<td>100000</td>
+<td>100000</td>
+</tr>
+</tbody>
+</table>
+<p>图像数据可分为三部分：背景、噪声(点、线)、公式。<br>背景为浅色无渐变，噪声的点颜色分布均匀，噪声的线有公式内部和公式外部两种，公式部分整体排列整齐，整个行是水平的，内部每个字符做了一定的变换。<br>仔细观察每个色块的颜色可以得出数据生成时的大概步骤：</p>
+<ol>
+<li>生成背景：背景图层在最下层，且插值部分颜色与背景颜色有关系</li>
+<li>置入公式：猜测公式和颜色是分开的，公式部分颜色更加杂乱</li>
+<li>生成直线</li>
+<li>对公式和直线部分做仿射变换：用到了一定的插值方法</li>
+<li>加入小的色块：色块的颜色是纯色的</li>
+<li>加入曲线：曲线颜色是纯色的，且在与色块重合的地方，可以看出曲线的图层是在色块之上的</li>
+</ol>
+<h1 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h1><p>色彩空间由RGB转为HSV，取H通道做单通道图，可以看出公式部分的色相基本是没有差别的。接下来通过色相来将公式部分分割出来。</p>
+<p>如何选取公式部分的色相？公式部分的色相在图像所有色相的排名中应是较高的，简单取几张图做排序分析，噪声的线的像素点数目往往比公式还要多。（噪点的颜色均匀，对色相的贡献基本一致）。<br>每一列按纵向排名，</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>原图如下</p>
+<p><img src="http://imglf.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3EwcHVGOUNvdDMwb0d6bXVnN09KS3I4MnIrK285YlhPN2NRPT0.png?imageView&amp;thumbnail=3000y843&amp;type=jpg&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="原图"></p>
+<p>色彩空间由RGB转HSV，由H通道到灰度值做y=x的映射。（其实就是直接拿来做灰度图了）</p>
+<p>这一步的想法：噪点被添加了杂色，既然是随机的（大概），分布也应该是均匀的。那么在不同颜色的投票上，公式部分的权重就会很大。通过RGB转HSV可以用H单通道来表示颜色，简化了计算。</p>
+<p><img src="http://imglf0.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3EwaGxoYnRIc1FqTnMzblRGV0JaMk44eGo4SU9uc0VLVVl3PT0.png?imageView&amp;thumbnail=3000y843&amp;type=jpg&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="RGB转HSV取H通道"></p>
+<p>在色相上，取像素点数目最多的前n个，当然排名第一的是背景，排除。</p>
+<p><img src="http://imglf.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3Ewc2FDVlFTSUdHZ2w3S25adXZ1RnRlTVBxRUhLbU40TzZ3PT0.png?imageView&amp;thumbnail=3000y843&amp;type=jpg&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="设阈值二值化"></p>
+<p>噪点与公式部分的区别在于空间上不连通，所以选用了计算连通域面积的方法，设定阈值消除噪点，因为在前一步取像素点时色相有轻微差异的点没有被选进来，公式部分其实是由一个个小的连通域组成的。所以做了膨胀，为了不进一步扩大横线的影响，选择了以横向膨胀为主。体现在<code>kernel</code>的size上</p>
+<p><img src="http://imglf0.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3Ewc1RQcndnOXN1aWVrc0gzSkt1UlYyRmJFY2U2RmlPSnhnPT0.png?imageView&amp;thumbnail=3000y843&amp;type=jpg&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="横向膨胀后设阈值去除较小连通域"></p>
+<p>做纵向为主的腐蚀，依旧体现在<code>kernel</code>的size上，这样横向跨度很大，但纵向占据较少像素点的线条就会消除了。</p>
+<p><img src="http://imglf2.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3Ewdk5oUFJ0eWFhRDBiV1VwTis5R3JrSEtYSUV6Yk9xaG5BPT0.png?imageView&amp;thumbnail=3000y843&amp;type=jpg&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="纵向腐蚀去除横线"></p>
+<p>再做一次膨胀，这一次是横纵向都有的，确保之前操作后剩余的有效像素点扩张后可以涵盖公式部分，可以看出噪声中一条两端弯曲的横线在处理中一直保存下来了。最后效果如下。</p>
+<p><img src="http://imglf.nosdn.127.net/img/elBJbXQxRXFVUVRUUE9ycTdsS3EwcWxSdU9uVlZIL1Q0Um11TDdDMnJycUk3YjJSZTBMdUtRPT0.png?imageView&amp;thumbnail=3000y843&amp;type=jpg&amp;quality=96&amp;stripmeta=0&amp;type=jpg" alt="横纵向膨胀连接分散的色块"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3197118-16f79c2ab879e665.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="figure_1.png"></p>
+<h1 id="模型构建"><a href="#模型构建" class="headerlink" title="模型构建"></a>模型构建</h1><p>模型分为三个子模型，赋值公式的识别模型、计算公式的识别模型、分式的识别模型<br>赋值公式的识别模型，选用和初赛相同的CNN+RNN/LSTM+CTC的架构</p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="http://blog.csdn.net/real_myth/article/details/53088649" target="_blank" rel="external">基于形态学操作提取水平和垂直线条(五线谱中音符和乐谱线的分离)</a></li>
+</ul>
+<h1 id="试错集"><a href="#试错集" class="headerlink" title="试错集"></a>试错集</h1><h2 id="数据处理-1"><a href="#数据处理-1" class="headerlink" title="数据处理"></a>数据处理</h2><p>光是处理数据就花了一周的时间，提了几个方案，最后还是选用了简单粗暴的方法，真的是大道至简……提的其他几个方案都无法handle总量在20W的数据集，出错的频率不一，但是在合适的图上面效果是比较好的，在这里留存一下吧。处理比赛数据这件事，越钻研trick越反倒把自己陷进去了，一周大部分时间都拿来做一件没什么长久收益的事情，总是有摸鱼的嫌疑。</p>
+<h3 id="去除纯色色块"><a href="#去除纯色色块" class="headerlink" title="去除纯色色块"></a>去除纯色色块</h3><p>观察到图像数据中噪声大部分是后加的，没有经历过插值的色块是纯色的。如何高效且健壮地去除图像中的纯色色块是一个很严肃的问题……<br>8-邻域法：观察一个像素的8-邻域像素是否只包含背景色(此处已处理为黑色)和该像素本身的颜色</p>
+<p>1*3子结构法：观察是否存在1*3的纯色子结构，如果存在，把所有这种颜色的色块去除</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/01/【日志】2017.8/" rel="next" title="【日志】2017.8">
+                <i class="fa fa-chevron-left"></i> 【日志】2017.8
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/02/百度魅族深度学习应用大赛-初赛/" rel="prev" title="百度魅族深度学习应用大赛-决赛">
+                百度魅族深度学习应用大赛-决赛 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Chatoyant" />
+          <p class="site-author-name" itemprop="name">Chatoyant</p>
+           
+              <p class="site-description motion-element" itemprop="description">深度学习</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#赛题介绍"><span class="nav-number">1.</span> <span class="nav-text">赛题介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据分析"><span class="nav-number">2.</span> <span class="nav-text">数据分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据处理"><span class="nav-number">3.</span> <span class="nav-text">数据处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一"><span class="nav-number">3.1.</span> <span class="nav-text">方法一</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模型构建"><span class="nav-number">4.</span> <span class="nav-text">模型构建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结果"><span class="nav-number">5.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#试错集"><span class="nav-number">7.</span> <span class="nav-text">试错集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据处理-1"><span class="nav-number">7.1.</span> <span class="nav-text">数据处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#去除纯色色块"><span class="nav-number">7.1.1.</span> <span class="nav-text">去除纯色色块</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-code"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chatoyant</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("FeGFn4nLk6CYz5f4RAJoxmzu-gzGzoHsz", "b2uk803aDqmn5jRORm1wEzwO");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
